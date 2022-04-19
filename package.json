@@ -1,0 +1,41 @@
+{
+  "name": "@craigmcc/shared-react",
+  "version": "0.0.5",
+  "description": "Library of useful React components to be shared across applications.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "publish": "npm publish --access public .",
+    "test": "jest",
+    "testall": "CI=true jest",
+    "tsc": "tsc",
+    "typedoc": "typedoc --cleanOutputDir --out apidocs src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigmcc/shared-utils.git"
+  },
+  "keywords": [
+    "javascript",
+    "typescript"
+  ],
+  "author": "craigmcc",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.3"
+  },
+  "peerDependencies": {
+    "bootstrap": ">= 5",
+    "react": ">=17 || >=18",
+    "react-bootstrap": ">= 2.2",
+    "react-dom": ">=17 || >=18"
+  }
+}
