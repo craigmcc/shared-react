@@ -1,6 +1,6 @@
 {
   "name": "@craigmcc/shared-react",
-  "version": "0.0.5",
+  "version": "0.0.1",
   "description": "Library of useful React components to be shared across applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,16 +17,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/craigmcc/shared-utils.git"
+    "url": "git+https://github.com/craigmcc/shared-react.git"
   },
   "keywords": [
-    "javascript",
+    "components",
+    "react",
+    "react-bootstrap",
     "typescript"
   ],
   "author": "craigmcc",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/craigmcc/shared-react/issues"
+  },
+  "homepage": "https://github.com/craigmcc/shared-react#readme",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^14.1.1",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.25",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.4",
     "typedoc": "^0.22.15",
