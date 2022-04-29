@@ -22,4 +22,10 @@ export type OnClick = (event: React.MouseEvent<HTMLElement>) => void;
 export type OnFocus = (event: React.FocusEvent<HTMLElement>) => void;
 export type OnKeyDown = (event: React.KeyboardEvent<HTMLElement>) => void;
 
+// Component Detail Objects --------------------------------------------------
+
+export type SelectOption = {
+    label: string;                      // Label displayed for this option
+    value: string;                      // Value to return when option selected
+}
 

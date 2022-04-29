@@ -13,12 +13,9 @@ import {FieldErrors, UseFormRegister} from "react-hook-form";
 
 // Internal Modules ----------------------------------------------------------
 
-// Incoming Properties -------------------------------------------------------
+import {SelectOption} from "../types";
 
-export type SelectOption = {
-    label: string;                      // Label displayed for this option
-    value: string;                      // Value to return when option selected
-}
+// Incoming Properties -------------------------------------------------------
 
 export interface SelectFieldProps {
     as?: ElementType;                   // Render Form.Group as this component [Col]

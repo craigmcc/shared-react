@@ -12,7 +12,7 @@ which version is used.  Check the `peerDependencies` section of the
 
 If needed, you can install the peer dependencies:
 ```shell
-npm install bootstrap react react-bootstrap react-dom react-hook-form
+npm install bootstrap react react-bootstrap react-dom react-hook-form react-toastify
 ```
 
 To install this library itself:
@@ -27,6 +27,20 @@ or `App.jsx` file:
 ```typescript
 import 'bootstrap/dist/css/bootstrap-min.css';
 ```
+
+Likewise, you will need to import the *react-toastify* styles, along with the
+declaration for the `<ToastContainer>` component.  Again, the easiest
+way is to include the following in your outermost `App.tsx` or `App.jsx` file:
+```typescript
+import {ToastContainer} from 'react-toastify';
+import `react-toastify/dist/ReactToastify.css`;
+```
+
+Finally, in your `App.tsx` or `App.jsx` file, include a `<ToastContainer>`
+component, normally above and outside all of your application components.
+This component is used to configure the default characteristics for all
+toast notifications that your application produces -- see the react-toastify
+documentation for details.
 
 ## Data Handler Types
 
@@ -57,6 +71,15 @@ react-bootstrap) that are useful in creating fields for an HTML form:
 | [CheckBoxField](#CheckBoxField)  | A form input element for a checkbox.  |
 | [SelectField](#SelectField)      | A form element for a select dropdown. |
 | [TextField](#TextField)          | A form element for a text input.      |
+
+Also, the following components render a toast notification, while a fetching or mutating operation
+is in progress.  They are typically used in conjunction with a corresponding React custom hook that
+performs the requested function asynchronously, but this is not required.
+
+| Component Name                    | Description                                                                                    |
+| --------------------------------- |------------------------------------------------------------------------------------------------|
+| [FetchingProgress](#FetchingProgress) | Display a toast while a "fetching" API call is in progress, or an error toast if it fails.     |
+| [MutatingProgress](#MutatingProgress) | Display a toast while a "mutating" API call is in progress, or an error toast if it fails.     |                                                                   
 
 ### CheckBox
 
@@ -182,6 +205,82 @@ in the usual way:
 
 #### Behavior Notes
 * The field label will appear *after* the checkbox, in the usual react-bootstrap style.
+
+### FetchingProgress
+
+#### Usage:
+
+Import this component in your using component module (either JSX or TSX):
+```typescript
+import {FetchingProgress} from '@craigmcc/shared-react';
+```
+
+Then, render this component somewhere in your component's output.  The actual
+location of the rendered toast is based on the settings you configured in the
+`<ToastContainer>` component described earlier.
+
+#### Supported Configuration Properties
+
+| Name      | Data Type       | Required | Description                                                           | Default Value                   |
+|-----------|-----------------|----------|-----------------------------------------------------------------------|---------------------------------|
+| duration  | number          | No       | Number of ms to display this toast if not cleared (0=forever)         | Default from `<ToastContainer>` |
+| error     | Error or null   | No       | Error thrown by fetch logic (typically from a custom hook)            | No notification                 |
+| loading   | boolean         | No       | Flag indicating a fetch is in progress (typically from a custom hook) | No notification                 |
+| message   | string          | Yes      | Message displayed in this toast while loading is in progress          | NO DEFAULT                      |
+
+#### Example:
+
+Assume you have a custom hook that performs a fetch, and returns (among other things):
+* error: Error | null - Javascript error thrown by the fetch operation.
+* loading: boolean - Flag indicating that the fetch operation is in progress.
+
+Then, you might include a progress component like this:
+
+```typescript jsx
+<FetchingProgress
+    error={customHook.error}
+    loading={customHook.loading}
+    message="Fetching selected customers"
+/>
+```
+
+### MutatingProgress
+
+#### Usage:
+
+Import this component in your using component module (either JSX or TSX):
+```typescript
+import {MutatingProgress} from '@craigmcc/shared-react';
+```
+
+Then, render this component somewhere in your component's output.  The actual
+location of the rendered toast is based on the settings you configured in the
+`<ToastContainer>` component described earlier.
+
+#### Supported Configuration Properties
+
+| Name      | Data Type       | Required | Description                                                              | Default Value                   |
+|-----------|-----------------|----------|--------------------------------------------------------------------------|---------------------------------|
+| duration  | number          | No       | Number of ms to display this toast if not cleared (0=forever)            | Default from `<ToastContainer>` |
+| error     | Error or null   | No       | Error thrown by mutating logic (typically from a custom hook)            | No notification                 |
+| executing | boolean         | No       | Flag indicating a mutation is in progress (typically from a custom hook) | No notification                 |
+| message   | string          | Yes      | Message displayed in this toast while mutation is in progress            | NO DEFAULT                      |
+
+#### Example:
+
+Assume you have a custom hook that performs a mutation, and returns (among other things):
+* error: Error | null - Javascript error thrown by the mutation operation.
+* executing: boolean - Flag indicating that the mutation operation is in progress.
+
+Then, you might include a progress component like this:
+
+```typescript jsx
+<MutatingProgress
+    error={customHook.error}
+    executing={customHook.executing}
+    message="Updating the selected order"
+/>
+```
 
 ### Pagination
 

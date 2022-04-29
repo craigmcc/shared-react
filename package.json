@@ -1,6 +1,6 @@
 {
   "name": "@craigmcc/shared-react",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Library of useful React components to be shared across applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -49,6 +49,7 @@
     "react": ">=17 || >=18",
     "react-bootstrap": ">= 2.2",
     "react-dom": ">=17 || >=18",
-    "react-hook-form": ">=7.30"
+    "react-hook-form": ">=7.30",
+    "react-toastify": ">=8.2"
   }
 }
