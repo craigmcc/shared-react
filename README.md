@@ -12,7 +12,7 @@ which version is used.  Check the `peerDependencies` section of the
 
 If needed, you can install the peer dependencies:
 ```shell
-npm install bootstrap react react-bootstrap react-dom
+npm install bootstrap react react-bootstrap react-dom react-hook-form
 ```
 
 To install this library itself:
@@ -41,13 +41,22 @@ export type HandleValue = (newValue: string) => void;
 
 ## Included Components
 
-The following components are provided by this library:
+The following general purpose components are provided by this library:
 
 | Component Name            | Description                                                                                                                                   |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | [CheckBox](#CheckBox)     | A standalone checkbox input, with optional decorations.  Suitable for use cases where a form is overkill.                                     |
 | [Pagination](#Pagination) | Very simple pagination controls when managing a multiple page table.                                                                          |
 | [SearchBar](#SearchBar)   | General purpose search bar, with optional decorations.  You can choose to be notified on each keystroke, or only when the value is completed. |
+
+In addition, the following components render a `<Form.Group>` element (from
+react-bootstrap) that are useful in creating fields for an HTML form:
+
+| Component Name                   | Description                           |
+|----------------------------------|---------------------------------------|
+| [CheckBoxField](#CheckBoxField)  | A form input element for a checkbox.  |
+| [SelectField](#SelectField)      | A form element for a select dropdown. |
+| [TextField](#TextField)          | A form element for a text input.      |
 
 ### CheckBox
 
@@ -137,6 +146,42 @@ Then use it in your rendered return value, in the usual way:
 
 #### Behavior Notes:
 * The `handleChange` function will be called whenever the checkbox is checked or unchecked.
+
+### CheckBoxField
+
+#### Usage:
+
+Import this component in your using component module (either JSX or TSX):
+
+```typescript
+import {CheckBoxField} from "@craigmcc/shared-react";
+```
+
+Then use in your rendered return value (within a `<Form>` component from react-boostrap)
+in the usual way:
+
+```tsx
+<CheckBoxField {CheckBoxFieldProps}/>
+```
+
+#### Supported Configuration Properties
+
+| Name      | Data Type       | Required | Description                                                     | Default Value |
+|-----------|-----------------| -------- |-----------------------------------------------------------------|---------------|
+| as        | ElementType     | No       | Render the `<Form.Group>` as a component of this type.          | Col           |
+| autoFocus | boolean         | No       | Should this field receive autoFocus?                            | false         |
+| className | string          | No       | CSS style class names (space separated) for the `<Form.Group>`. | none          |
+| disabled  | boolean         | No       | Should this field be disabled?                                  | false         |
+| errors    | FieldError      | Yes      | `errors` object from `useForm()`.                               | NO DEFAULT    |
+| invalid?  | string          | No       | Error message if input is invalid                               | no message    |
+| label     | string          | Yes      | Field label.                                                    | NO DEFAULT    |
+| name      | string          | Yes      | Name of this field (must be unique in a form).                  | NO DEFAULT    |
+| readOnly  | boolean         | No       | Should this field be marked as read only?                       | false         |
+| register  | UseFormRegister | Yes      | `register` object from `useForm()`.                             | NO DEFAULT    |
+| type      | string          | No       | Input control type ("checkbox" or "radio").                     | checkbox      |
+
+#### Behavior Notes
+* The field label will appear *after* the checkbox, in the usual react-bootstrap style.
 
 ### Pagination
 
@@ -270,4 +315,79 @@ Then use it in your rendered return value, in the usual way:
 #### Behavior Notes:
 * The `handleChange` function (if any) will be called on each keystroke.
 * The `handleValue` function (if any) will be called when *Enter* or *Tab* is pressed.
+
+### SelectField
+
+#### Usage:
+
+Import this component in your using component module (either JSX or TSX):
+
+```typescript
+import {SelectField} from "@craigmcc/shared-react";
+```
+
+Then use in your rendered return value (within a `<Form>` component from react-boostrap)
+in the usual way:
+
+```tsx
+<SelectField {SelectFieldProps}/>
+```
+
+#### Supported Configuration Properties
+
+| Name      | Data Type       | Required | Description                                                     | Default Value |
+|-----------|-----------------| -------- |-----------------------------------------------------------------|---------------|
+| as        | ElementType     | No       | Render the `<Form.Group>` as a component of this type.          | Col           |
+| autoFocus | boolean         | No       | Should this field receive autoFocus?                            | false         |
+| className | string          | No       | CSS style class names (space separated) for the `<Form.Group>`. | none          |
+| disabled  | boolean         | No       | Should this field be disabled?                                  | false         |
+| errors    | FieldError      | Yes      | `errors` object from `useForm()`.                               | NO DEFAULT    |
+| header    | SelectOption    | No       | Optional placeholder rendered above the options list.           | none          |
+| label     | string          | Yes      | Field label.                                                    | NO DEFAULT    |
+| name      | string          | Yes      | Name of this field (must be unique in a form).                  | NO DEFAULT    |
+| options   | SelectOption[]  | Yes      | Array of select options with *label* and *value* properties.    | NO DEFAULT    |
+| readOnly  | boolean         | No       | Should this field be marked as read only?                       | false         |
+| register  | UseFormRegister | Yes      | `register` object from `useForm()`.                             | NO DEFAULT    |
+| valid     | string          | No       | Help message for valid input                                    | none          |
+
+#### Behavior Notes
+* The field label will appear *above* the select field, in the usual react-bootstrap style.
+
+### TextField
+
+#### Usage:
+
+Import this component in your using component module (either JSX or TSX):
+
+```typescript
+import {TextField} from "@craigmcc/shared-react";
+```
+
+Then use in your rendered return value (within a `<Form>` component from react-boostrap)
+in the usual way:
+
+```tsx
+<TextField {TextFieldProps}/>
+```
+
+#### Supported Configuration Properties
+
+| Name        | Data Type       | Required | Description                                                     | Default Value |
+|-------------|-----------------| -------- |-----------------------------------------------------------------|---------------|
+| as          | ElementType     | No       | Render the `<Form.Group>` as a component of this type.          | Col           |
+| autoFocus   | boolean         | No       | Should this field receive autoFocus?                            | false         |
+| className   | string          | No       | CSS style class names (space separated) for the `<Form.Group>`. | none          |
+| disabled    | boolean         | No       | Should this field be disabled?                                  | false         |
+| errors      | FieldError      | Yes      | `errors` object from `useForm()`.                               | NO DEFAULT    |
+| htmlSize    | number          | No       | HTML size of text field.                                        | none          |
+| label       | string          | Yes      | Field label.                                                    | NO DEFAULT    |
+| name        | string          | Yes      | Name of this field (must be unique in a form).                  | NO DEFAULT    |
+| placeholder | string          | No       | Placeholder text when the field has no value.                   | none          |
+| readOnly    | boolean         | No       | Should this field be marked as read only?                       | false         |
+| register    | UseFormRegister | Yes      | `register` object from `useForm()`.                             | NO DEFAULT    |
+| type        | string          | No       | Input field type (date|hidden|month|number|password|text|time). | text
+| valid       | string          | No       | Help message for valid input                                    | none          |
+
+#### Behavior Notes
+* The field label will appear *above* the text field, in the usual react-bootstrap style.
 
