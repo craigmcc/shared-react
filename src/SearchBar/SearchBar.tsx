@@ -36,6 +36,9 @@ const SearchBar = (props: SearchBarProps) => {
 
     useEffect(() => {
         // Force rerender if props.value changes
+        if (props.value !== undefined) {
+            setValue(props.value);
+        }
     }, [value, props.value]);
 
     const handleChange: OnChangeInput = (event): void => {

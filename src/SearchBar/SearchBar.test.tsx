@@ -41,7 +41,7 @@ test("renders correctly with disabled", async () => {
 
 })
 
-test("renders correctly with maximal properties (but not disabled)", async () => {
+test("renders correctly with most properties (not disabled or value)", async () => {
 
     const PROPS: SearchBarProps = {
         autoFocus: true,
@@ -74,6 +74,36 @@ test("renders correctly with maximal properties (but not disabled)", async () =>
     expect(inputElement).toHaveValue("abc");
     expect(PROPS.handleChange).toBeCalledWith("abc");
     expect(PROPS.handleChange).toBeCalledWith("abc");
+
+});
+
+test("renders correctly with more properties (not disabled)", async () => {
+
+    const PROPS: SearchBarProps = {
+        autoFocus: true,
+        // disabled -- cannot test input if this was set
+        handleChange: jest.fn(),
+        handleValue: jest.fn(),
+        htmlSize: 50,
+        label: "My Label",
+        name: "myName",
+        placeholder: "Enter search text here",
+        value: "abc",
+    };
+    await act(async () => {
+        render(<SearchBar {...PROPS}/>);
+    });
+
+    const {inputElement} = elements(PROPS.label ? PROPS.label : "Search For:");
+
+    expect(inputElement).toBeInTheDocument();
+    // NOTE - console.log("inputElement", prettyDOM(inputElement));
+    // NOTE - autoFocus is a Javascript thing
+    expect(inputElement).toBeEnabled();
+    expect(inputElement).toHaveAttribute("id", PROPS.name);
+    expect(inputElement).toHaveAttribute("placeholder", PROPS.placeholder);
+    expect(inputElement).toHaveAttribute("size", "" + PROPS.htmlSize);
+    expect(inputElement).toHaveValue(PROPS.value);
 
 });
 
