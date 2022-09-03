@@ -190,12 +190,12 @@ in the usual way:
 #### Supported Configuration Properties
 
 | Name      | Data Type       | Required | Description                                                     | Default Value |
-|-----------|-----------------| -------- |-----------------------------------------------------------------|---------------|
+|-----------|-----------------|----------|-----------------------------------------------------------------|---------------|
 | as        | ElementType     | No       | Render the `<Form.Group>` as a component of this type.          | Col           |
 | autoFocus | boolean         | No       | Should this field receive autoFocus?                            | false         |
 | className | string          | No       | CSS style class names (space separated) for the `<Form.Group>`. | none          |
 | disabled  | boolean         | No       | Should this field be disabled?                                  | false         |
-| errors    | FieldError      | Yes      | `errors` object from `useForm()`.                               | NO DEFAULT    |
+| error     | FieldError      | No       | FieldError object for this field (if any).                      | no error      |
 | invalid?  | string          | No       | Error message if input is invalid                               | no message    |
 | label     | string          | Yes      | Field label.                                                    | NO DEFAULT    |
 | name      | string          | Yes      | Name of this field (must be unique in a form).                  | NO DEFAULT    |
@@ -435,12 +435,12 @@ in the usual way:
 #### Supported Configuration Properties
 
 | Name      | Data Type       | Required | Description                                                     | Default Value |
-|-----------|-----------------| -------- |-----------------------------------------------------------------|---------------|
+|-----------|-----------------|----------|-----------------------------------------------------------------|---------------|
 | as        | ElementType     | No       | Render the `<Form.Group>` as a component of this type.          | Col           |
 | autoFocus | boolean         | No       | Should this field receive autoFocus?                            | false         |
 | className | string          | No       | CSS style class names (space separated) for the `<Form.Group>`. | none          |
 | disabled  | boolean         | No       | Should this field be disabled?                                  | false         |
-| errors    | FieldError      | Yes      | `errors` object from `useForm()`.                               | NO DEFAULT    |
+| error     | FieldError      | No       | FieldError object for this field (if any).                      | no error      |
 | header    | SelectOption    | No       | Optional placeholder rendered above the options list.           | none          |
 | label     | string          | Yes      | Field label.                                                    | NO DEFAULT    |
 | name      | string          | Yes      | Name of this field (must be unique in a form).                  | NO DEFAULT    |
@@ -472,19 +472,19 @@ in the usual way:
 #### Supported Configuration Properties
 
 | Name        | Data Type       | Required | Description                                                     | Default Value |
-|-------------|-----------------| -------- |-----------------------------------------------------------------|---------------|
+|-------------|-----------------|----------|-----------------------------------------------------------------|---------------|
 | as          | ElementType     | No       | Render the `<Form.Group>` as a component of this type.          | Col           |
 | autoFocus   | boolean         | No       | Should this field receive autoFocus?                            | false         |
 | className   | string          | No       | CSS style class names (space separated) for the `<Form.Group>`. | none          |
 | disabled    | boolean         | No       | Should this field be disabled?                                  | false         |
-| errors      | FieldError      | Yes      | `errors` object from `useForm()`.                               | NO DEFAULT    |
+| error       | FieldError      | No       | FieldError object for this field (if any).                      | no error      |
 | htmlSize    | number          | No       | HTML size of text field.                                        | none          |
 | label       | string          | Yes      | Field label.                                                    | NO DEFAULT    |
 | name        | string          | Yes      | Name of this field (must be unique in a form).                  | NO DEFAULT    |
 | placeholder | string          | No       | Placeholder text when the field has no value.                   | none          |
 | readOnly    | boolean         | No       | Should this field be marked as read only?                       | false         |
 | register    | UseFormRegister | Yes      | `register` object from `useForm()`.                             | NO DEFAULT    |
-| type        | string          | No       | Input field type (date|hidden|month|number|password|text|time). | text
+| type        | string          | No       | Input field type (date                                          | hidden        |month|number|password|text|time). | text
 | valid       | string          | No       | Help message for valid input                                    | none          |
 
 #### Behavior Notes
