@@ -16,20 +16,26 @@ import TestForm, {TestFormProps} from "./TestForm";
 
 const elements = (): {
     // Fields
+    checkBoxField: HTMLElement,
     firstField: HTMLElement,
     secondField: HTMLElement,
+    selectField: HTMLElement,
     // Buttons
     submit: HTMLElement,
 } => {
 
+    const checkBoxField = screen.getByLabelText("Active?");
     const firstField = screen.getByLabelText("First Field:");
     const secondField = screen.getByLabelText("Second Field:");
+    const selectField = screen.getByLabelText("Select Field:");
 
     const submit = screen.getByRole("button", { name: "Submit" });
 
     return {
+        checkBoxField,
         firstField,
         secondField,
+        selectField,
         submit: submit,
     }
 
@@ -46,11 +52,13 @@ test("renders correctly", async () => {
     await act(async () => {
         render(<TestForm {...PROPS}/>);
     });
-    screen.debug();
+//    screen.debug();
 
-    const {firstField, secondField, submit} = elements();
+    const {checkBoxField, firstField, secondField, selectField, submit} = elements();
+    expect(checkBoxField).toBeInTheDocument();
     expect(firstField).toBeInTheDocument();
     expect(secondField).toBeInTheDocument();
+    expect(selectField).toBeInTheDocument();
     expect(submit).toBeInTheDocument();
 
 });

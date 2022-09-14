@@ -16,11 +16,16 @@ import * as Yup from "yup";
 
 // Internal Modules ----------------------------------------------------------
 
+import {SelectOption} from "../types";
+import CheckBoxField from "../CheckBoxField/CheckBoxField";
+import SelectField from "../SelectField/SelectField";
 import TextField from "../TextField/TextField";
 
 export type TestFormValues = {
+    checkBoxField: boolean | null;
     firstField: string | null;
     secondField: string | null;
+    selectField: string | null;
 }
 
 export type HandleTestFormValues = (values: TestFormValues) => void;
@@ -33,6 +38,12 @@ export interface TestFormProps {
 }
 
 const TestForm = (props: TestFormProps) => {
+
+    const selectOptions: SelectOption[] = [
+        {label: "First Label", value: "First Value"},
+        {label: "Second Label", value: "Second Value"},
+        {label: "Third Label", value: "Third Value"},
+    ];
 
     const validationSchema = Yup.object().shape({
         firstField: Yup.string()
@@ -49,8 +60,10 @@ const TestForm = (props: TestFormProps) => {
 
     const {formState: {errors}, handleSubmit, register} = useForm<TestFormValues>({
         defaultValues: props.values ? props.values : {
+            checkBoxField: true,
             firstField: null,
             secondField: null,
+            selectField: "Second Value",
         },
         mode: "onBlur",
         resolver: yupResolver(validationSchema),
@@ -81,6 +94,24 @@ const TestForm = (props: TestFormProps) => {
                         register={register}
                         valid="Enter abc to avoid the lame error message"
                     />
+                </Row>
+                <Row className="mb-3">
+                    <Col>
+                        <SelectField
+                            label="Select Field:"
+                            name="selectField"
+                            options={selectOptions}
+                            register={register}
+                        />
+                    </Col>
+                    <Col>
+                        <CheckBoxField
+                            error={errors.checkBoxField}
+                            label="Active?"
+                            name="checkBoxField"
+                            register={register}
+                        />
+                    </Col>
                 </Row>
                 <Row className="mb-3">
                     <Col className="text-center">
