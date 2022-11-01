@@ -49,6 +49,7 @@
     "bootstrap": ">= 5",
     "react": ">=17 || >=18",
     "react-bootstrap": ">= 2.2",
+    "react-bootstrap-icons": ">=1.9",
     "react-dom": ">=17 || >=18",
     "react-hook-form": ">=7.34",
     "react-toastify": ">=8.2",

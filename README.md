@@ -12,7 +12,7 @@ which version is used.  Check the `peerDependencies` section of the
 
 If needed, you can install the peer dependencies:
 ```shell
-npm install bootstrap react react-bootstrap react-dom react-hook-form react-toastify
+npm install bootstrap react react-bootstrap react-bootstrap-icons react-dom react-hook-form react-toastify
 ```
 
 To install this library itself:
@@ -59,6 +59,9 @@ The following general purpose components are provided by this library:
 
 | Component Name            | Description                                                                                                                                   |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| [AddButon](#AddButton)    | A stylized button with a "+" icon.                                                                                                            |
+| [BackButon](#BackButton)  | A stylized button with a "<" icon.                                                                                                            |
+| [Callout](#Callout)       | A text area with variant background colors, useful in documentation.                                                                          |
 | [CheckBox](#CheckBox)     | A standalone checkbox input, with optional decorations.  Suitable for use cases where a form is overkill.                                     |
 | [Pagination](#Pagination) | Very simple pagination controls when managing a multiple page table.                                                                          |
 | [SearchBar](#SearchBar)   | General purpose search bar, with optional decorations.  You can choose to be notified on each keystroke, or only when the value is completed. |
@@ -80,6 +83,77 @@ performs the requested function asynchronously, but this is not required.
 | --------------------------------- |------------------------------------------------------------------------------------------------|
 | [FetchingProgress](#FetchingProgress) | Display a toast while a "fetching" API call is in progress, or an error toast if it fails.     |
 | [MutatingProgress](#MutatingProgress) | Display a toast while a "mutating" API call is in progress, or an error toast if it fails.     |                                                                   
+
+### AddButton
+
+#### Usage
+
+Import this component in your using component module (either JSX or TSX):
+```shell
+import {AddButton, HandleAction} from "@craigmcc/shared-react";
+```
+
+Then use it in your rendered return value, in the usual way:
+```tsx
+<AddButton {AddButtonProps}/>
+```
+
+#### Supported Configuration Properties
+
+| Name      | Data Type    | Required | Description                                     | Default Value  |
+|-----------|--------------|----------|-------------------------------------------------|----------------|
+| disabled  | boolean      | No       | Should the rendered element be marked disabled? | false          |
+| handleAdd | HandleAction | No       | Function to handle button clicks                | no handler     |
+| testId    | string       | No       | Optional "data-testid" value for tests          | no data-testid |
+
+### BackButton
+
+#### Usage
+
+Import this component in your using component module (either JSX or TSX):
+```shell
+import {BackButton, HandleAction} from "@craigmcc/shared-react";
+```
+
+Then use it in your rendered return value, in the usual way:
+```tsx
+<BackButton {BackButtonProps}/>
+```
+
+#### Supported Configuration Properties
+
+| Name       | Data Type    | Required | Description                                     | Default Value  |
+|------------|--------------|----------|-------------------------------------------------|----------------|
+| disabled   | boolean      | No       | Should the rendered element be marked disabled? | false          |
+| handleBack | HandleAction | No       | Function to handle button clicks                | no handler     |
+| testId     | string       | No       | Optional "data-testid" value for tests          | no data-testid |
+
+### Callout
+
+#### Usage
+
+Import this component in your using component module (either JSX or TSX):
+```shell
+import {Callout} from "@craigmcc/shared-react";
+```
+
+Then use it in your rendered return value, in the usual way:
+```tsx
+<Callout {CalloutProps}/>
+```
+
+#### Supported Configuration Properties
+
+| Name     | Data Type | Required | Description                                  | Default Value             |
+|----------|-----------|----------|----------------------------------------------|---------------------------|
+| children | ReactNode | Yes      | Text content to be rendered in this Callout  | NO DEFAULT                |
+| icon     | boolean   | No       | Should a title icon be rendered?             | true (if title specified) |
+| title    | string    | No       | Optional title (header) for this Callout     | no title                  |
+| variant  | string    | No       | Bootstrap variant style for background color | info                      |
+
+The variant values are the standard ones for Bootstrap:  primary, secondary, success, danger, warning,
+info, light, and dark.  This chooses the color of the background for the callout, and also the
+complementary color for the displayed text.
 
 ### CheckBox
 
