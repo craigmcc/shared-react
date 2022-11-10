@@ -3,6 +3,7 @@ export {default as BackButton} from "./BackButton";
 export {default as Callout} from "./Callout";
 export {default as CheckBox} from "./CheckBox";
 export {default as CheckBoxField} from "./CheckBoxField";
+export {default as EditButton} from "./EditButton";
 export {default as FetchingProgress} from "./FetchingProgress";
 export {default as MutatingProgress} from "./MutatingProgress";
 export {default as Pagination} from "./Pagination";
