@@ -17,22 +17,21 @@ import {
 
 // Internal Modules ----------------------------------------------------------
 
-// Incoming Properties -------------------------------------------------------
+import {CalloutVariant} from "../types";
 
-type VARIANT = "primary" | "secondary" | "success" | "danger" | "warning" |
-    "info" | "light" | "dark";
+// Incoming Properties -------------------------------------------------------
 
 export interface CalloutProps {
     children: ReactNode;                // Children composing the callout message
     icon?: boolean;                     // Show title icon (if any)? [true]
     title?: string;                     // Callout title [none]
-    variant?: VARIANT;                  // Display style [info]
+    variant?: CalloutVariant;           // Display style [info]
 }
 
 const Callout = (props: CalloutProps) => {
 
     const className = "me-2 alert-heading";
-    const variant = props.variant ? props.variant : "info";
+    const variant: string = props.variant ? props.variant : "info";
 
     return (
         <Alert

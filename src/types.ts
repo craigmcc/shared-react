@@ -29,3 +29,12 @@ export type SelectOption = {
     value: string;                      // Value to return when option selected
 }
 
+// Component Detail Types ----------------------------------------------------
+
+/**
+ * Display styles for Callout components.
+ */
+export type CalloutVariant =
+    "primary" | "secondary" | "success" | "danger" | "warning" |
+    "info" | "light" | "dark" | "muted";
+
