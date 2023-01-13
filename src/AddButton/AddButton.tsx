@@ -34,7 +34,7 @@ const AddButton = (props: AddButtonProps) => {
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleAdd ? props.handleAdd : undefined}
             title="Add"
-            variant={variant}
+            variant="outline-{variant}"
         >
             <PlusCircleFill size={32}/>
         </Button>
