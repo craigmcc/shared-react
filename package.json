@@ -1,6 +1,6 @@
 {
   "name": "@craigmcc/shared-react",
-  "version": "2.1.1-alpha8",
+  "version": "2.1.1-alpha9",
   "description": "Library of useful React components to be shared across applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

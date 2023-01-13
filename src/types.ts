@@ -45,3 +45,10 @@ export type CalloutVariant =
     "primary" | "secondary" | "success" | "danger" | "warning" |
     "info" | "light" | "dark";
 
+/**
+ * Display styles for EditButton components.
+ */
+export type EditButtonVariant =
+    "primary" | "secondary" | "success" | "danger" | "warning" |
+    "info" | "light" | "dark" | "muted";
+

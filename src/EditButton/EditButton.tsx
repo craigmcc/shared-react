@@ -10,23 +10,20 @@ import {PencilFill} from "react-bootstrap-icons";
 
 // Internal Modules ----------------------------------------------------------
 
-import {HandleAction} from "../types";
+import {EditButtonVariant, HandleAction} from "../types";
 
 // Incoming Properties -------------------------------------------------------
-
-type VARIANT = "primary" | "secondary" | "success" | "danger" | "warning" |
-    "info" | "light" | "dark" | "muted";
 
 export interface EditButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
     handleEdit?: HandleAction;          // Handle a click on this button [no handler]
     testId?: string;                    // data-testid value [edit]
-    variant?: VARIANT;                  // Display (color) style [dark]
+    variant?: EditButtonVariant;        // Display style [dark]
 }
 
 const EditButton = (props: EditButtonProps) => {
 
-    const variant = props.variant ? props.variant : "dark";
+    const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (
         <Button
