@@ -32,9 +32,16 @@ export type SelectOption = {
 // Component Detail Types ----------------------------------------------------
 
 /**
+ * Display styles for AddButton components.
+ */
+export type AddButtonVariant =
+    "primary" | "secondary" | "success" | "danger" | "warning" |
+    "info" | "light" | "dark" | "muted";
+
+/**
  * Display styles for Callout components.
  */
 export type CalloutVariant =
     "primary" | "secondary" | "success" | "danger" | "warning" |
-    "info" | "light" | "dark" | "muted";
+    "info" | "light" | "dark";
 
