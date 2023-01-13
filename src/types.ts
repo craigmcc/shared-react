@@ -39,6 +39,13 @@ export type AddButtonVariant =
     "info" | "light" | "dark" | "muted";
 
 /**
+ * Display styles for BackButton components.
+ */
+export type BackButtonVariant =
+    "primary" | "secondary" | "success" | "danger" | "warning" |
+    "info" | "light" | "dark" | "muted";
+
+/**
  * Display styles for Callout components.
  */
 export type CalloutVariant =
