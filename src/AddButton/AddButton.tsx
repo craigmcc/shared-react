@@ -26,7 +26,6 @@ export interface AddButtonProps {
 const AddButton = (props: AddButtonProps) => {
 
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
-    console.log("variant=", variant);
 
     return (
         <Button
