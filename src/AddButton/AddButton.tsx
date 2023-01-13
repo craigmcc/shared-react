@@ -25,7 +25,7 @@ export interface AddButtonProps {
 
 const AddButton = (props: AddButtonProps) => {
 
-    const variant: string = props.variant ? props.variant : "dark";
+    const variant: string = props.variant ? `outline-{props.variant}` : "outline-dark";
 
     return (
         <Button
@@ -34,7 +34,7 @@ const AddButton = (props: AddButtonProps) => {
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleAdd ? props.handleAdd : undefined}
             title="Add"
-            variant={`outline-{variant}`}
+            variant={variant}
         >
             <PlusCircleFill size={32}/>
         </Button>
