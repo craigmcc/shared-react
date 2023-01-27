@@ -1,12 +1,12 @@
-// BackButton ----------------------------------------------------------------
+// ForwardButton ----------------------------------------------------------------
 
-// Generic button using a "back" icon as its content.
+// Generic button using a "forward" icon as its content.
 
 // External Modules ----------------------------------------------------------
 
 import React from "react";
 import Button from "react-bootstrap/Button";
-import {CaretLeftFill} from "react-bootstrap-icons";
+import {CaretRight, CaretRightFill} from "react-bootstrap-icons";
 
 // Internal Modules ----------------------------------------------------------
 
@@ -14,35 +14,35 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 
 // Incoming Properties -------------------------------------------------------
 
-export interface BackButtonProps {
+export interface ForwardButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
-    handleBack?: HandleAction;          // Handle a click on this button [no handler]
+    handleForward?: HandleAction;       // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [medium]
-    testId?: string;                    // data-testid value [back]
+    testId?: string;                    // data-testid value [forward]
     variant?: ButtonVariant;            // Display style [dark]
 }
 
 // Component Details ---------------------------------------------------------
 
-const BackButton = (props: BackButtonProps) => {
+const ForwardButton = (props: ForwardButtonProps) => {
 
     let size: number | undefined = props.size ? ButtonSizes[props.size] : undefined;
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (
         <Button
-            aria-label="Back"
-            data-testid={props.testId ? props.testId : "back"}
+            aria-label="Forward"
+            data-testid={props.testId ? props.testId : "forward"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
-            onClick={props.handleBack ? props.handleBack : undefined}
-            title="Back"
+            onClick={props.handleForward ? props.handleForward : undefined}
+            title="Forward"
             variant={variant}
         >
-            <CaretLeftFill size={size}/>
+            <CaretRightFill size={size}/>
         </Button>
 
     )
 
 }
 
-export default BackButton;
+export default ForwardButton;

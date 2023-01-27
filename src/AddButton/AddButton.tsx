@@ -10,21 +10,23 @@ import {PlusCircleFill} from "react-bootstrap-icons";
 
 // Internal Modules ----------------------------------------------------------
 
-import {AddButtonVariant, HandleAction} from "../types";
+import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 
 // Incoming Properties -------------------------------------------------------
 
 export interface AddButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
     handleAdd?: HandleAction;           // Handle a click on this button [no handler]
+    size?: ButtonSize;                  // Display size [medium]
     testId?: string;                    // data-testid value [add]
-    variant?: AddButtonVariant;         // Display style [dark]
+    variant?: ButtonVariant;            // Display style [dark]
 }
 
 // Component Details ---------------------------------------------------------
 
 const AddButton = (props: AddButtonProps) => {
 
+    let size: number | undefined = props.size ? ButtonSizes[props.size] : undefined;
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (
@@ -36,7 +38,7 @@ const AddButton = (props: AddButtonProps) => {
             title="Add"
             variant={variant}
         >
-            <PlusCircleFill size={32}/>
+            <PlusCircleFill size={size}/>
         </Button>
 
     )

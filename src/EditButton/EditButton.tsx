@@ -10,19 +10,21 @@ import {PencilFill} from "react-bootstrap-icons";
 
 // Internal Modules ----------------------------------------------------------
 
-import {EditButtonVariant, HandleAction} from "../types";
+import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 
 // Incoming Properties -------------------------------------------------------
 
 export interface EditButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
     handleEdit?: HandleAction;          // Handle a click on this button [no handler]
+    size?: ButtonSize;                  // Display size [medium]
     testId?: string;                    // data-testid value [edit]
-    variant?: EditButtonVariant;        // Display style [dark]
+    variant?: ButtonVariant;            // Display style [dark]
 }
 
 const EditButton = (props: EditButtonProps) => {
 
+    let size: number | undefined = props.size ? ButtonSizes[props.size] : undefined;
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (
@@ -35,7 +37,7 @@ const EditButton = (props: EditButtonProps) => {
             variant={variant}
         >
             <PencilFill
-                size={16}
+                size={size}
             />
         </Button>
     )
