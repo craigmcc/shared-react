@@ -17,7 +17,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 export interface AddButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
     handleAdd?: HandleAction;           // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [medium]
+    size?: ButtonSize;                  // Display size [small]
     testId?: string;                    // data-testid value [add]
     variant?: ButtonVariant;            // Display style [dark]
 }
@@ -26,7 +26,7 @@ export interface AddButtonProps {
 
 const AddButton = (props: AddButtonProps) => {
 
-    let size: number | undefined = props.size ? ButtonSizes[props.size] : undefined;
+    let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (

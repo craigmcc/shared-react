@@ -17,14 +17,14 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 export interface EditButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
     handleEdit?: HandleAction;          // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [medium]
+    size?: ButtonSize;                  // Display size [small]
     testId?: string;                    // data-testid value [edit]
     variant?: ButtonVariant;            // Display style [dark]
 }
 
 const EditButton = (props: EditButtonProps) => {
 
-    let size: number | undefined = props.size ? ButtonSizes[props.size] : undefined;
+    let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (

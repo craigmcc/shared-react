@@ -17,7 +17,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 export interface BackButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
     handleBack?: HandleAction;          // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [medium]
+    size?: ButtonSize;                  // Display size [small]
     testId?: string;                    // data-testid value [back]
     variant?: ButtonVariant;            // Display style [dark]
 }
@@ -26,7 +26,7 @@ export interface BackButtonProps {
 
 const BackButton = (props: BackButtonProps) => {
 
-    let size: number | undefined = props.size ? ButtonSizes[props.size] : undefined;
+    let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (

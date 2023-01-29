@@ -1,12 +1,11 @@
-// ForwardButton ----------------------------------------------------------------
+// TextButton ----------------------------------------------------------------
 
-// Generic button using a "forward" icon as its content.
+// Generic button using a specified text label.
 
 // External Modules ----------------------------------------------------------
 
 import React from "react";
 import Button from "react-bootstrap/Button";
-import {CaretRight, CaretRightFill} from "react-bootstrap-icons";
 
 // Internal Modules ----------------------------------------------------------
 
@@ -14,35 +13,38 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 
 // Incoming Properties -------------------------------------------------------
 
-export interface ForwardButtonProps {
+export interface TextButtonProps {
     disabled?: boolean;                 // Render button as disabled? [false]
-    handleForward?: HandleAction;       // Handle a click on this button [no handler]
+    handleText?: HandleAction;          // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [small]
-    testId?: string;                    // data-testid value [forward]
+    testId?: string;                    // data-testid value [text]
+    text: string;                       // Textual button label [no default]
     variant?: ButtonVariant;            // Display style [dark]
 }
 
 // Component Details ---------------------------------------------------------
 
-const ForwardButton = (props: ForwardButtonProps) => {
+const TextButton = (props: TextButtonProps) => {
 
-    let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];
+    let size: string | undefined = undefined;
+    if (props.size === "small") {
+        size = "sm"
+    } else if (props.size === "large") {
+        size = "lg";
+    }
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 
     return (
         <Button
-            aria-label="Forward"
-            data-testid={props.testId ? props.testId : "forward"}
+            aria-label={props.text}
+            data-testid={props.testId ? props.testId : "text"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
-            onClick={props.handleForward ? props.handleForward : undefined}
-            title="Forward"
+            onClick={props.handleText ? props.handleText : undefined}
+            title={props.text}
             variant={variant}
         >
-            <CaretRightFill size={size}/>
+            {props.text}
         </Button>
-
     )
 
 }
-
-export default ForwardButton;
