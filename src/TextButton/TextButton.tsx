@@ -48,3 +48,5 @@ const TextButton = (props: TextButtonProps) => {
     )
 
 }
+
+export default TextButton;

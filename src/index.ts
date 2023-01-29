@@ -10,5 +10,6 @@ export {default as MutatingProgress} from "./MutatingProgress";
 export {default as Pagination} from "./Pagination";
 export {default as SearchBar} from "./SearchBar";
 export {default as SelectField} from "./SelectField";
+export {default as TextButton} from "./TextButton";
 export {default as TextField} from "./TextField";
 export * from "./types";
