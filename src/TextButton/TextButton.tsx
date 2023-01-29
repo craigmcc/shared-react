@@ -26,7 +26,7 @@ export interface TextButtonProps {
 
 const TextButton = (props: TextButtonProps) => {
 
-    let size: string | undefined = undefined;
+    let size: "sm" | "lg" | undefined = undefined;
     if (props.size === "small") {
         size = "sm"
     } else if (props.size === "large") {
@@ -40,6 +40,7 @@ const TextButton = (props: TextButtonProps) => {
             data-testid={props.testId ? props.testId : "text"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleText ? props.handleText : undefined}
+            size={size}
             title={props.text}
             variant={variant}
         >
