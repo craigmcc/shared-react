@@ -15,6 +15,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface AddButtonProps {
+    className?: string;                 // Additional CSS classes [none]
     disabled?: boolean;                 // Render button as disabled? [false]
     handleAdd?: HandleAction;           // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [small]
@@ -32,6 +33,7 @@ const AddButton = (props: AddButtonProps) => {
     return (
         <Button
             aria-label="Add"
+            className={props.className ? props.className : undefined}
             data-testid={props.testId ? props.testId : "add"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleAdd ? props.handleAdd : undefined}

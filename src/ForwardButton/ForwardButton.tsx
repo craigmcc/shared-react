@@ -15,6 +15,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface ForwardButtonProps {
+    className?: string;                 // Additional CSS classes [none]
     disabled?: boolean;                 // Render button as disabled? [false]
     handleForward?: HandleAction;       // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [small]
@@ -32,6 +33,7 @@ const ForwardButton = (props: ForwardButtonProps) => {
     return (
         <Button
             aria-label="Forward"
+            className={props.className ? props.className : undefined}
             data-testid={props.testId ? props.testId : "forward"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleForward ? props.handleForward : undefined}

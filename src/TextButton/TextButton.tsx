@@ -14,6 +14,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface TextButtonProps {
+    className?: string;                 // Additional CSS classes [none]
     disabled?: boolean;                 // Render button as disabled? [false]
     handleText?: HandleAction;          // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [small]
@@ -37,6 +38,7 @@ const TextButton = (props: TextButtonProps) => {
     return (
         <Button
             aria-label={props.text}
+            className={props.className ? props.className : undefined}
             data-testid={props.testId ? props.testId : "text"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleText ? props.handleText : undefined}

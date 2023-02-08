@@ -15,6 +15,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface BackButtonProps {
+    className?: string;                 // Additional CSS classes [none]
     disabled?: boolean;                 // Render button as disabled? [false]
     handleBack?: HandleAction;          // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [small]
@@ -32,6 +33,7 @@ const BackButton = (props: BackButtonProps) => {
     return (
         <Button
             aria-label="Back"
+            className={props.className ? props.className : undefined}
             data-testid={props.testId ? props.testId : "back"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleBack ? props.handleBack : undefined}

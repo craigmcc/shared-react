@@ -15,6 +15,7 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface EditButtonProps {
+    className?: string;                 // Additional CSS classes [none]
     disabled?: boolean;                 // Render button as disabled? [false]
     handleEdit?: HandleAction;          // Handle a click on this button [no handler]
     size?: ButtonSize;                  // Display size [small]
@@ -30,6 +31,7 @@ const EditButton = (props: EditButtonProps) => {
     return (
         <Button
             aria-label="Edit"
+            className={props.className ? props.className : undefined}
             data-testid={props.testId ? props.testId : "edit"}
             disabled={(props.disabled !== undefined) ? props.disabled : undefined}
             onClick={props.handleEdit ? props.handleEdit : undefined}
