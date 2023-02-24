@@ -15,16 +15,52 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface AddButtonProps {
-    className?: string;                 // Additional CSS classes [none]
-    disabled?: boolean;                 // Render button as disabled? [false]
-    handleAdd?: HandleAction;           // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [small]
-    testId?: string;                    // data-testid value [add]
+    /**
+     * Additional CSS classes (space separated).
+     *
+     * @default None
+     */
+    className?: string;
+    /**
+     * Render this button as disabled?
+     *
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * Handle a click on this button.
+     *
+     * @default No handler
+     */
+    handleAdd?: HandleAction;
+    /**
+     * Display size for this button.
+     *
+     * @default small
+     */
+    size?: ButtonSize;
+    /**
+     * A data-testid value for this component instance.
+     *
+     * @default edit
+     */
+    testId?: string;
+    /**
+     * Display style for this component.
+     *
+     * @default dark
+     */
     variant?: ButtonVariant;            // Display style [dark]
 }
 
 // Component Details ---------------------------------------------------------
 
+/**
+ * Generic button using an "Add" icon as its content.
+ *
+ * @param props
+ * @constructor
+ */
 const AddButton = (props: AddButtonProps) => {
 
     let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];
