@@ -15,36 +15,42 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface AddButtonProps {
+
     /**
      * Additional CSS classes (space separated).
      *
      * @default None
      */
     className?: string;
+
     /**
      * Render this button as disabled?
      *
      * @default false
      */
     disabled?: boolean;
+
     /**
      * Handle a click on this button.
      *
-     * @default No handler
+     * @default None
      */
     handleAdd?: HandleAction;
+
     /**
      * Display size for this button.
      *
      * @default small
      */
     size?: ButtonSize;
+
     /**
      * A data-testid value for this component instance.
      *
-     * @default edit
+     * @default add
      */
     testId?: string;
+
     /**
      * Display style for this component.
      *
