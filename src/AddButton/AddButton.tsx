@@ -52,7 +52,7 @@ export interface AddButtonProps {
     testId?: string;
 
     /**
-     * Display style for this component.
+     * Base display style for this button.
      *
      * @default dark
      */

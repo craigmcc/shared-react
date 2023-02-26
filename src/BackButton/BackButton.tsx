@@ -15,16 +15,59 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface BackButtonProps {
-    className?: string;                 // Additional CSS classes [none]
-    disabled?: boolean;                 // Render button as disabled? [false]
-    handleBack?: HandleAction;          // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [small]
-    testId?: string;                    // data-testid value [back]
-    variant?: ButtonVariant;            // Display style [dark]
+
+    /**
+     * Additional CSS classes (space separated)
+     *
+     * @default None
+     */
+    className?: string;
+
+    /**
+     * Render this button as disabled?
+     *
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * Handle a click on this button.
+     *
+     * @default None
+     */
+    handleBack?: HandleAction;
+
+    /**
+     * Display size of this button.
+     *
+     * @default small
+     */
+    size?: ButtonSize;
+
+    /**
+     * A data-testid value for this component instance.
+     *
+     * @default back
+     */
+    testId?: string;
+
+    /**
+     * Base display style for this button.
+     *
+     * @default dark
+     */
+    variant?: ButtonVariant;
+
 }
 
 // Component Details ---------------------------------------------------------
 
+/**
+ * Generic button using a "Back" icon as its content.
+ *
+ * @param props
+ * @constructor
+ */
 const BackButton = (props: BackButtonProps) => {
 
     let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];

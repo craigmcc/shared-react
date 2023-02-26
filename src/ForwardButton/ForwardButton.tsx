@@ -15,12 +15,49 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface ForwardButtonProps {
-    className?: string;                 // Additional CSS classes [none]
-    disabled?: boolean;                 // Render button as disabled? [false]
-    handleForward?: HandleAction;       // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [small]
-    testId?: string;                    // data-testid value [forward]
-    variant?: ButtonVariant;            // Display style [dark]
+
+    /**
+     * Additional CSS classes (space separated)
+     *
+     * @default None
+     */
+    className?: string;
+
+    /**
+     * Render this button as disabled?
+     *
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * Handle a click on this button.
+     *
+     * @default None
+     */
+    handleForward?: HandleAction;
+
+    /**
+     * Display size of this button.
+     *
+     * @default small
+     */
+    size?: ButtonSize;
+
+    /**
+     * A data-testid value for this component instance.
+     *
+     * @default forward
+     */
+    testId?: string;
+
+    /**
+     * Base display style for this button.
+     *
+     * @default dark
+     */
+    variant?: ButtonVariant;
+
 }
 
 // Component Details ---------------------------------------------------------

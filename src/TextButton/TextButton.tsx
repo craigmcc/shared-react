@@ -14,24 +14,75 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface TextButtonProps {
-    className?: string;                 // Additional CSS classes [none]
-    disabled?: boolean;                 // Render button as disabled? [false]
-    handleText?: HandleAction;          // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [small]
-    testId?: string;                    // data-testid value [text]
-    text: string;                       // Textual button label [no default]
-    variant?: ButtonVariant;            // Display style [dark]
+
+    /**
+     * Additional CSS classes (space separated)
+     *
+     * @default None
+     */
+    className?: string;
+
+    /**
+     * Render this button as disabled?
+     *
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * Handle a click on this button.
+     *
+     * @default None
+     */
+    handleText?: HandleAction;
+
+    /**
+     * Display size of this button.
+     *
+     * @default small
+     */
+    size?: ButtonSize;
+
+    /**
+     * A data-testid value for this component instance.
+     *
+     * @default back
+     */
+    testId?: string;
+
+    /**
+     * Label text for this button.
+     */
+    text: string;
+
+    /**
+     * Base display style for this button.
+     *
+     * @default dark
+     */
+    variant?: ButtonVariant;
+
 }
 
 // Component Details ---------------------------------------------------------
 
+/**
+ * Generic button using a specified text label.
+ *
+ * @param props
+ * @constructor
+ */
 const TextButton = (props: TextButtonProps) => {
 
-    let size: "sm" | "lg" | undefined = undefined;
+    let size: "sm" | "lg" | undefined = "sm";
     if (props.size === "small") {
         size = "sm"
+    } else if (props.size === "medium") {
+        size = undefined;
     } else if (props.size === "large") {
         size = "lg";
+    } else {
+        size = "sm";
     }
     const variant: string = props.variant ? "outline-" + props.variant : "outline-dark";
 

@@ -15,14 +15,57 @@ import {ButtonSize, ButtonSizes, ButtonVariant, HandleAction} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface EditButtonProps {
-    className?: string;                 // Additional CSS classes [none]
-    disabled?: boolean;                 // Render button as disabled? [false]
-    handleEdit?: HandleAction;          // Handle a click on this button [no handler]
-    size?: ButtonSize;                  // Display size [small]
-    testId?: string;                    // data-testid value [edit]
-    variant?: ButtonVariant;            // Display style [dark]
+
+    /**
+     * Additional CSS classes (space separated)
+     *
+     * @default None
+     */
+    className?: string;
+
+    /**
+     * Render this button as disabled?
+     *
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * Handle a click on this button.
+     *
+     * @default None
+     */
+    handleEdit?: HandleAction;
+
+    /**
+     * Display size of this button.
+     *
+     * @default small
+     */
+    size?: ButtonSize;
+
+    /**
+     * A data-testid value for this component instance.
+     *
+     * @default edit
+     */
+    testId?: string;
+
+    /**
+     * Base display style for this button.
+     *
+     * @default dark
+     */
+    variant?: ButtonVariant;
+
 }
 
+/**
+ * Generic button using an "Edit" icon as its content.
+ *
+ * @param props
+ * @constructor
+ */
 const EditButton = (props: EditButtonProps) => {
 
     let size: number | undefined = props.size ? ButtonSizes[props.size] : ButtonSizes["small"];
