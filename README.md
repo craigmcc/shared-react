@@ -10,7 +10,7 @@ This library depends on the following peer dependencies, but is flexible about
 which version is used.  Check the `peerDependencies` section of the
 `package.json` file to see what minimum versions are required.
 
-If needed, you can install the peer dependencies:
+As needed, you can install the peer dependencies:
 ```shell
 npm install bootstrap react react-bootstrap react-bootstrap-icons react-dom react-hook-form react-toastify
 ```
@@ -20,6 +20,8 @@ To install this library itself:
 npm install @craigmcc/shared-react
 ```
 
+### Styles for Bootstrap and React-Bootstrap
+
 The components depend on `react-bootstrap` (and therefore `bootstrap` itself)
 for styling, so somewhere in your application you will need to import the Bootstrap
 styles.  The easiest way is to include the following in your outermost `App.tsx`
@@ -28,6 +30,8 @@ or `App.jsx` file:
 import 'bootstrap/dist/css/bootstrap-min.css';
 ```
 
+### Styles for React-Toastify
+
 Likewise, you will need to import the *react-toastify* styles, along with the
 declaration for the `<ToastContainer>` component.  Again, the easiest
 way is to include the following in your outermost `App.tsx` or `App.jsx` file:
@@ -35,6 +39,7 @@ way is to include the following in your outermost `App.tsx` or `App.jsx` file:
 import {ToastContainer} from 'react-toastify';
 import `react-toastify/dist/ReactToastify.css`;
 ```
+### Wrapper Container for React-Toastify
 
 Finally, in your `App.tsx` or `App.jsx` file, include a `<ToastContainer>`
 component, normally above and outside all of your application components.
@@ -52,6 +57,11 @@ export type HandleAction = () => void;
 export type HandleBoolean = (newBoolean: boolean) => void;
 export type HandleValue = (newValue: string) => void;
 ```
+
+## Component Documentation
+
+A (still in progress) Style Guide for all included components can be found
+[here](#https://raw.githubusercontent.com/craigmcc/shared-react/main/docs/index.html).
 
 ## Included Components
 
