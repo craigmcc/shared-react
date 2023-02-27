@@ -9,7 +9,7 @@
 import React, {ElementType} from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import {FieldErrors, UseFormRegister} from "react-hook-form";
+import {FieldError, UseFormRegister} from "react-hook-form";
 
 // Internal Modules ----------------------------------------------------------
 
@@ -20,7 +20,7 @@ export interface TextFieldProps {
     autoFocus?: boolean;                // This field to receive autoFocus? [false]
     className?: string;                 // CSS class(es) for the Form.Group [none]
     disabled?: boolean;                 // Disable this field? [false]
-    errors: FieldErrors;                // errors object from useForm()
+    error?: FieldError;                 // FieldError for this field [none]
     htmlSize?: number;                  // HTML size of text field [none]
     label?: string;                     // Field label [none]
     name: string;                       // Name of this field [required]
@@ -50,8 +50,8 @@ const TextField = (props: TextFieldProps) => {
                 autoFocus={props.autoFocus ? props.autoFocus : undefined}
                 disabled={(props.disabled !== undefined) ? props.disabled : undefined}
                 htmlSize={(props.htmlSize !== undefined) ? props.htmlSize : undefined}
-                isInvalid={!!props.errors[props.name]}
-                isValid={!props.errors[props.name]}
+                isInvalid={!!props.error}
+                isValid={!props.error}
                 placeholder={props.placeholder ? props.placeholder : undefined}
                 readOnly={(props.readOnly !== undefined) ? props.readOnly : undefined}
                 type={props.type ? props.type : undefined}
@@ -63,7 +63,7 @@ const TextField = (props: TextFieldProps) => {
                 </Form.Control.Feedback>
             ) : null }
             <Form.Control.Feedback type="invalid">
-                {props.errors[props.name]?.message}
+                {props.error?.message}
             </Form.Control.Feedback>
         </Form.Group>
     )

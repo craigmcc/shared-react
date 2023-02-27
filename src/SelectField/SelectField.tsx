@@ -9,7 +9,7 @@
 import React, {ElementType} from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import {FieldErrors, UseFormRegister} from "react-hook-form";
+import {FieldError, UseFormRegister} from "react-hook-form";
 
 // Internal Modules ----------------------------------------------------------
 
@@ -22,7 +22,7 @@ export interface SelectFieldProps {
     autoFocus?: boolean;                // This field to receive autoFocus? [false]
     className?: string;                 // CSS class(es) for the Form.Group [none]
     disabled?: boolean;                 // Disable this field? [false]
-    errors: FieldErrors;                // errors object from useForm()
+    error?: FieldError;                 // FieldError object for this field [none]
     header?: SelectOption;              // Optional header option for above the list [none]
     label: string;                      // Field label [required]
     name: string;                       // Name of this field [required]
@@ -46,8 +46,8 @@ const SelectField = (props: SelectFieldProps) => {
             <Form.Select
                 autoFocus={props.autoFocus ? props.autoFocus : undefined}
                 disabled={(props.disabled !== undefined) ? props.disabled : undefined}
-                isInvalid={!!props.errors[props.name]}
-                isValid={!props.errors[props.name]}
+                isInvalid={!!props.error}
+                isValid={!props.error}
                 size="sm"
                 {...props.register(props.name)}
             >
@@ -68,7 +68,7 @@ const SelectField = (props: SelectFieldProps) => {
                 </Form.Control.Feedback>
             ) : null }
             <Form.Control.Feedback type="invalid">
-                {props.errors[props.name]?.message}
+                {props.error?.message}
             </Form.Control.Feedback>
         </Form.Group>
     )

@@ -1,6 +1,6 @@
 {
   "name": "@craigmcc/shared-react",
-  "version": "1.2.1",
+  "version": "2.2.1",
   "description": "Library of useful React components to be shared across applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,10 +10,11 @@
   "scripts": {
     "build": "tsc -p .",
     "publish": "npm publish --access public .",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
     "test": "jest",
     "testall": "CI=true jest",
-    "tsc": "tsc",
-    "typedoc": "typedoc --cleanOutputDir --out apidocs src/index.ts"
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -33,23 +34,30 @@
   "homepage": "https://github.com/craigmcc/shared-react#readme",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.1.1",
     "@types/jest": "^27.4.1",
-    "@types/node": "^18.7.14",
-    "@types/react": "^18.0.5",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.1",
     "jest": "^27.5.1",
+    "react-docgen-typescript": "^2.2.2",
+    "react-styleguidist": "^13.1.1",
+    "source-map-loader": "^4.0.1",
     "ts-jest": "^27.1.4",
-    "typedoc": "^0.23.14",
-    "typescript": "^4.6.3"
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.8.3",
+    "webpack": "^5.75.0"
   },
   "peerDependencies": {
+    "@hookform/resolvers": ">=2.9.8",
     "bootstrap": ">= 5",
-    "react": ">=17 || >=18",
+    "react": "^18.2.0",
     "react-bootstrap": ">= 2.2",
-    "react-dom": ">=17 || >=18",
-    "react-hook-form": ">=7.30",
-    "react-toastify": ">=8.2"
+    "react-bootstrap-icons": ">=1.9",
+    "react-dom": "^18.2.0",
+    "react-hook-form": ">=7.34",
+    "react-toastify": ">=8.2",
+    "yup": ">=0.32.11"
   }
 }

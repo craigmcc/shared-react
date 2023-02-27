@@ -8,5 +8,5 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
-    target-branch: "version-2.0"
+      interval: "weekly"
+    target-branch: "main"
