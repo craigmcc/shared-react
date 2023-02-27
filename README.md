@@ -61,7 +61,7 @@ export type HandleValue = (newValue: string) => void;
 ## Component Documentation
 
 A (still in progress) Style Guide for all included components can be found
-[here](docs).
+[here](https://craigmcc.github.io/shared-react/).
 
 ## Included Components
 
