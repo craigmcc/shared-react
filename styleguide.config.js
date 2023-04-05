@@ -7,6 +7,10 @@ module.exports = {
     }).parse,
     sections: [
         {
+            content: "./docs/Introduction.md",
+            name: "Introduction",
+        },
+        {
             components: [
                 "src/**/AddButton/AddButton.tsx",
                 "src/**/BackButton/BackButton.tsx",

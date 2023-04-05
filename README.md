@@ -1,6 +1,6 @@
 # Shared React Components Library
 
-This module contains a number of React components that I have shared across
+This library contains a number of React components that I had shared across
 multiple applications the old fashioned way (cut-n-paste).  It's time to make
 them a separate thing that can be maintained and updated in one place.
 
@@ -27,7 +27,7 @@ for styling, so somewhere in your application you will need to import the Bootst
 styles.  The easiest way is to include the following in your outermost `App.tsx`
 or `App.jsx` file:
 ```typescript
-import 'bootstrap/dist/css/bootstrap-min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
 ### Styles for React-Toastify
