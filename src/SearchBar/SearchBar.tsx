@@ -16,19 +16,85 @@ import {HandleValue, OnChangeInput, OnKeyDown} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface SearchBarProps {
+
+    /**
+     * Should this element receive autofocus on rendering?
+     *
+     * @default false
+     */
     autoFocus?: boolean;                // Should element receive autoFocus? [false]
+
+    /**
+     * Should this element be disabled?
+     *
+     * @default false
+     */
     disabled?: boolean;                 // Should element be disabled? [false]
+
+    /**
+     * Handle value after each individual change.
+     *
+     * @default None
+     */
     handleChange?: HandleValue;         // Handle value on each change [no handler]
+
+    /**
+     * Handle value after <code>Enter</code> or <code>Tab</code> is pressed.
+     *
+     * @default None
+     */
     handleValue?: HandleValue;          // Handle value on enter [no handler]
+
+    /**
+     * Number of characters to show in the text field.
+     *
+     * @default None
+     */
     htmlSize?: number;                  // Number of characters to show [no setting]
+
+    /**
+     * Element label.
+     *
+     * @default Search For
+     */
     label?: string;                     // Element label [Search For:]
+
+    /**
+     * Input control name.
+     *
+     * @default searchBar
+     */
     name?: string;                      // Input control name [searchBar]
+
+    /**
+     * Placeholder text when no value has been entered.
+     *
+     * @default None
+     */
     placeholder?: string;               // Placeholder text [none]
+
+    /**
+     * Initial value to be displayed.
+     *
+     * @default None
+     */
     value?: string;                     // Initial value to display [""]
+
 }
 
 // Component Details ---------------------------------------------------------
 
+/**
+ * General purpose search bar, with optional decorations.
+ *
+ * You can specify one or both callback functions:
+ * * Your 'handleChange' function (if any) will be called as each character is typed.
+ * * Your 'handleValue' function (if any) will be called only on Enter or Tab,
+ *   or a focus change.
+ *
+ * @param props
+ * @constructor
+ */
 const SearchBar = (props: SearchBarProps) => {
 
     const [name] = useState<string>(props.name ? props.name : "searchBar");

@@ -22,12 +22,40 @@ import {CalloutVariant} from "../types";
 // Incoming Properties -------------------------------------------------------
 
 export interface CalloutProps {
+
+    /**
+     * Child components that are rendered inside the Callout.
+     */
     children: ReactNode;                // Children composing the callout message
+
+    /**
+     * Show the title icon?
+     *
+     * @default false
+     */
     icon?: boolean;                     // Show title icon (if any)? [true]
+
+    /**
+     * The title for this callout.
+     *
+     * @default None
+     */
     title?: string;                     // Callout title [none]
+
+    /**
+     * Base display style for this callout.
+     *
+     * @default info
+     */
     variant?: CalloutVariant;           // Display style [info]
+
 }
 
+/**
+ * Text callout box, with several variants, useful in documentation.
+ * @param props
+ * @constructor
+ */
 const Callout = (props: CalloutProps) => {
 
     const className = "me-2 alert-heading";

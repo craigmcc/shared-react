@@ -57,6 +57,7 @@ export interface AddButtonProps {
      * @default dark
      */
     variant?: ButtonVariant;            // Display style [dark]
+
 }
 
 // Component Details ---------------------------------------------------------
