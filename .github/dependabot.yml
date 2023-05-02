@@ -10,3 +10,4 @@ updates:
     schedule:
       interval: "weekly"
     target-branch: "main"
+    versioning-strategy: "increase"
