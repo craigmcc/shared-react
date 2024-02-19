@@ -48,7 +48,7 @@
     "ts-jest": "^29.1.1",
     "ts-loader": "^9.4.4",
     "typescript": "^4.8.3",
-    "webpack": "^5.88.2"
+    "webpack": "^5.90.2"
   },
   "peerDependencies": {
     "@hookform/resolvers": ">=2.9.8",
